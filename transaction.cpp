@@ -51,9 +51,15 @@ Transaction::Transaction(std::string des, double amo, int dat, bool deb, bool cr
     }
 
     void Transaction::display(std::ostream& outs) const{
+        char type = '+';
+        if (credit == true){
+            type = '-';
+        }
 
+        outs << date << description << type << '$' << amount;
     }
 
     void Transaction::read(std::istream& ins){
-
+        //ins >> std::ws;
+        ins >> date >> description >> amount >> 
     }
